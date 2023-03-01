@@ -88,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+ 
+        
         if (shootingTimer > 0)
         {
             shootingTimer -= Time.deltaTime;
@@ -174,6 +176,11 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+   
+        if (collision.gameObject.CompareTag("Hazards"))
+        {
+            Die();
+        }
         // Check if the player lands on the ground
         if (collision.gameObject.CompareTag("Ground"))
         {
